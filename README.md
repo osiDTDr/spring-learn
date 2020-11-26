@@ -6,3 +6,4 @@ Learn about Spring and related component frameworks
 | Package | README |
 | ------ | ------ |
 | mybatisplus | mybatis-plus |
+| websocket | websocket |
