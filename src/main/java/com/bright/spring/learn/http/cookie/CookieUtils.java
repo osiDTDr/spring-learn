@@ -96,12 +96,12 @@ public class CookieUtils {
             logger.error("current request have no cookie");
         } else {
             for (Cookie cookie : cookies) {
-                //迭代时如果发现与指定cookieName相同的cookie，就修改相关数据
+                // 迭代时如果发现与指定cookieName相同的cookie，就修改相关数据
                 if (cookie.getName().equals("name_test")) {
                     cookie.setValue("new_value");//修改value
                     cookie.setPath("/");
                     cookie.setMaxAge(10 * 60);// 修改存活时间
-                    response.addCookie(cookie);//将修改过的cookie存入response，替换掉旧的同名cookie
+                    response.addCookie(cookie);// 将修改过的cookie存入response，替换掉旧的同名cookie
                     break;
                 }
             }
@@ -120,7 +120,7 @@ public class CookieUtils {
             logger.error("current request have no cookie");
         } else {
             for (Cookie cookie : cookies) {
-                //如果找到同名cookie，就将value设置为null，将存活时间设置为0，再替换掉原cookie，这样就相当于删除了。
+                // 如果找到同名cookie，就将value设置为null，将存活时间设置为0，再替换掉原cookie，这样就相当于删除了。
                 if (cookie.getName().equals("name_test")) {
                     cookie.setValue(null);
                     cookie.setMaxAge(0);
