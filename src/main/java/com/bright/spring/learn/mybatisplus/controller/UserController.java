@@ -20,8 +20,13 @@ public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @PostMapping
-    public String getUser(@RequestBody User user) {
+    public String addUser(@RequestBody User user) {
         logger.debug("param user is {}", user);
+        return "success";
+    }
+
+    @GetMapping
+    public String getUser() {
         return "success";
     }
 }

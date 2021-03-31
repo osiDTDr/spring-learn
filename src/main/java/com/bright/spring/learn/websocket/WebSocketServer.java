@@ -20,10 +20,10 @@ public class WebSocketServer {
     private static final Logger logger = LoggerFactory.getLogger(WebSocketServer.class);
 
     // 记录当前在线连接数
-    private static volatile AtomicInteger onLineCount = new AtomicInteger(0);
+    private static final AtomicInteger onLineCount = new AtomicInteger(0);
 
     // 存放每个客户端对应的MyWebSocket对象。
-    private static ConcurrentHashMap<String, WebSocketServer> webSocketMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, WebSocketServer> webSocketMap = new ConcurrentHashMap<>();
 
     // 与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;

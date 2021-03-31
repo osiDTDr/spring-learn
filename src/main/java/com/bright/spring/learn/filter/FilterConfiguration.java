@@ -1,29 +1,26 @@
 package com.bright.spring.learn.filter;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 
-@NoArgsConstructor
-@Data
 @Configuration
 public class FilterConfiguration {
 
     @Bean
-    public FilterRegistrationBean<Test1Filter> test1Filter() {
-        FilterRegistrationBean<Test1Filter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new Test1Filter());
-        registrationBean.setOrder(1);   // 优先级
+    public FilterRegistrationBean<ProduceTokenFilter> test1Filter() {
+        FilterRegistrationBean<ProduceTokenFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new ProduceTokenFilter());
+        registrationBean.setOrder(Ordered.HIGHEST_PRECEDENCE);   // 优先级
         registrationBean.addUrlPatterns("/*");  // 拦截url
         return registrationBean;
     }
 
     @Bean
-    public FilterRegistrationBean<Test2Filter> test2Filter() {
-        FilterRegistrationBean<Test2Filter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new Test2Filter());
+    public FilterRegistrationBean<TokenFilter> test2Filter() {
+        FilterRegistrationBean<TokenFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new TokenFilter());
         registrationBean.setOrder(2);   // 优先级
         registrationBean.addUrlPatterns("/*");  // 拦截url
         return registrationBean;
